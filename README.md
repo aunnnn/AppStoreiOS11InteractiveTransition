@@ -1,4 +1,4 @@
-# AppStoreiOS11Transition
+# AppStore iOS 11's Transition
 
 Just another attempt to simulate App Store's Card transition.
 
