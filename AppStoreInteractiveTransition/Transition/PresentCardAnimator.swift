@@ -155,8 +155,6 @@ final class PresentCardTransitionDriver {
         let topTemporaryFix = screens.cardDetail.cardContentView.topAnchor.constraint(equalTo: cardDetailView.topAnchor, constant: 0)
         topTemporaryFix.isActive = GlobalConstants.isEnabledWeirdTopInsetsFix
 
-        cardDetailView.updateConstraintsIfNeeded()
-        animatedContainerView.updateConstraintsIfNeeded()
         container.layoutIfNeeded()
 
         // ------------------------------
@@ -187,12 +185,8 @@ final class PresentCardTransitionDriver {
 
             cardDetailView.removeConstraints([topTemporaryFix, cardWidthConstraint, cardHeightConstraint])
 
-            // NOTE: This and the below are not the same!
+            // Keep -1 to be consistent with the weird bug above.
             cardDetailView.edges(to: container, top: -1)
-
-            // This will create weird stutter!
-            //            cardDetailView.translatesAutoresizingMaskIntoConstraints = true
-            //            cardDetailView.frame = container.bounds
 
             screens.cardDetail.scrollView.isScrollEnabled = true
 
