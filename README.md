@@ -20,9 +20,13 @@ Interesting transitioning stuffs here:
 - [x] Bouncing up card animation using container view + AutoLayout
 - [x] Damping/duration depends on how far the card needs to travel on screen
 - [x] Support drag down to dismiss when reach the top of content page
-- [x] Support transition back to scroll when you scroll back up to cancel the dismissal
+- [x] \*You can transition back to scroll when you scroll back up to cancel the dismissal!
 - [x] Support left screen edge pan gesture 
-- [x] 
+
+## TODOs
+- [ ] Support continuous video/gif playing from home to detail page (This requires some work to use a whole view controller as a card cell content from the first page!)
+- [ ] Add blurry close button at the top right of detail page
+- [ ] Perfecting card bouncing up animation (still can't figure out how to achieve that *smooth bounciness* like the App Store.)
 
 Here are some implementation details:
 
