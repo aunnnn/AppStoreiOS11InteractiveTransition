@@ -162,6 +162,12 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
             }
 
         case .ended, .cancelled:
+            if dismissalAnimator == nil {
+                // Gesture's too quick that it doesn't have dismissalAnimator!
+                print("Too quick there's no animator!")
+                didCancelDismissalTransition()
+                return
+            }
             // NOTE:
             // If user lift fingers -> ended
             // If gesture.isEnabled -> cancelled
