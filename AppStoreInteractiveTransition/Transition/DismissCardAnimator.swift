@@ -60,7 +60,6 @@ final class DismissCardAnimator: NSObject, UIViewControllerAnimatedTransitioning
         // Card fills inside animated container view
         cardDetailView.edges(to: animatedContainerView)
 
-
         animatedContainerView.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
         let animatedContainerTopConstraint = animatedContainerView.topAnchor.constraint(equalTo: container.topAnchor, constant: 0)
         let animatedContainerWidthConstraint = animatedContainerView.widthAnchor.constraint(equalToConstant: cardDetailView.frame.width)
@@ -72,8 +71,6 @@ final class DismissCardAnimator: NSObject, UIViewControllerAnimatedTransitioning
         topTemporaryFix.isActive = GlobalConstants.isEnabledWeirdTopInsetsFix
 
         container.layoutIfNeeded()
-        animatedContainerView.layoutIfNeeded()
-        cardDetailView.layoutIfNeeded()
 
         let minimumScaleToShrink = params.fromCardFrameWithoutTransform.width * 0.94 / cardDetailView.bounds.width
 
@@ -81,6 +78,7 @@ final class DismissCardAnimator: NSObject, UIViewControllerAnimatedTransitioning
             screens.cardDetail.scrollView.setContentOffset(.zero, animated: true)
             screens.cardDetail.isFontStateHighlighted = false
             // Back to identity
+            // NOTE: Animated container view in a way, helps us to not messing up `transform` with `AutoLayout` animation.
             cardDetailView.transform = CGAffineTransform.identity
             animatedContainerTopConstraint.constant = self.params.fromCardFrameWithoutTransform.minY
             animatedContainerWidthConstraint.constant = self.params.fromCardFrameWithoutTransform.width
