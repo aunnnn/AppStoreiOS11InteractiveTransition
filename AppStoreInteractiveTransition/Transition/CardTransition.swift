@@ -23,19 +23,6 @@ final class CardTransition: NSObject, UIViewControllerTransitioningDelegate {
 
     let params: Params
 
-    /// Drag down pan gesture
-    private lazy var panGesture: PanGesture = {
-        let pan = PanGesture()
-        pan.maximumNumberOfTouches = 1
-        return pan
-    }()
-
-    private lazy var leftEdgeGesture: ScreenEdgePanGesture = {
-        let r = ScreenEdgePanGesture()
-        r.edges = UIRectEdge.left
-        return r
-    }()
-
     init(params: Params) {
         self.params = params
         super.init()
