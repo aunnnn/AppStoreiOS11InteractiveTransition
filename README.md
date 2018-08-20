@@ -1,4 +1,4 @@
-# AppStore iOS 11's Transition
+# iOS 11 App Store Transition
 
 Just another attempt to simulate App Store's Card transition.
 
@@ -16,6 +16,7 @@ Interesting transitioning stuffs here:
 - `CardDetailViewController`: Interactive shrinking pan gesture code.
 
 ## Features (that you might not know exist)
+- [x] Status bar animation
 - [x] Very responsive card cell highlighting animation
 - [x] Bouncing up card animation using container view + AutoLayout
 - [x] Damping/duration depends on how far the card needs to travel on screen
