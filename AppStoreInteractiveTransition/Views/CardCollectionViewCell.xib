@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CardCollectionViewCell" customModule="AppStoreHomeInteractiveTransition" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="349"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcV-92-55m" customClass="CardContentView" customModule="AppStoreHomeInteractiveTransition" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="349"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="img1.png"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BcV-92-55m" secondAttribute="trailing" id="Drs-W5-MFz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="BcV-92-55m" secondAttribute="bottom" id="MBB-MU-l8F"/>
+                <constraint firstItem="BcV-92-55m" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MOh-yh-wWR"/>
+                <constraint firstItem="BcV-92-55m" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="fDQ-Bz-bm0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="cardContentView" destination="BcV-92-55m" id="1RY-UC-BZp"/>
+            </connections>
+            <point key="canvasLocation" x="-2" y="-105.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img1.png" width="640" height="1136"/>
+    </resources>
+</document>

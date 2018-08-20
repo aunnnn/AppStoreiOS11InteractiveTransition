@@ -7,21 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301CAA782113014300AB61CC /* StatusBarAnimatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301CAA772113014300AB61CC /* StatusBarAnimatableViewController.swift */; };
+		301CAA7B21133D5800AB61CC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301CAA7A21133D5800AB61CC /* CardDetailViewController.swift */; };
+		304EF43121199C540017A318 /* DismissCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EF43021199C540017A318 /* DismissCardAnimator.swift */; };
 		30631CFF21106AF50007629D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631CFE21106AF50007629D /* AppDelegate.swift */; };
-		30631D0121106AF50007629D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D0021106AF50007629D /* ViewController.swift */; };
+		30631D0121106AF50007629D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D0021106AF50007629D /* HomeViewController.swift */; };
 		30631D0421106AF50007629D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30631D0221106AF50007629D /* Main.storyboard */; };
 		30631D0621106AF60007629D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30631D0521106AF60007629D /* Assets.xcassets */; };
 		30631D0921106AF60007629D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30631D0721106AF60007629D /* LaunchScreen.storyboard */; };
+		30631D1521106B150007629D /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D1221106B150007629D /* UIView+AutoLayout.swift */; };
+		30631D1621106B150007629D /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D1321106B150007629D /* NibLoadable.swift */; };
+		30631D1A21106B3B0007629D /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 30631D1821106B3B0007629D /* img2.jpg */; };
+		30631D1B21106B3B0007629D /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = 30631D1921106B3B0007629D /* img1.png */; };
+		30631D1D21106B860007629D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D1C21106B860007629D /* Utils.swift */; };
+		30631D1F211075780007629D /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D1E211075780007629D /* GlobalConstants.swift */; };
+		30631D25211075DE0007629D /* CardContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30631D21211075DE0007629D /* CardContentView.xib */; };
+		30631D26211075DE0007629D /* CardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D22211075DE0007629D /* CardContentView.swift */; };
+		30631D27211075DE0007629D /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30631D23211075DE0007629D /* CardCollectionViewCell.xib */; };
+		30631D28211075DE0007629D /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D24211075DE0007629D /* CardCollectionViewCell.swift */; };
+		30631D2A2110761E0007629D /* CardContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30631D292110761E0007629D /* CardContentViewModel.swift */; };
+		307B976521107CD8005A1629 /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B976421107CD8005A1629 /* CardPresentationController.swift */; };
+		307B976721107D4E005A1629 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B976621107D4E005A1629 /* CardTransition.swift */; };
+		307B976921107F04005A1629 /* PresentCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B976821107F04005A1629 /* PresentCardAnimator.swift */; };
+		30AFF5A42126CA5600BD4A50 /* drowning.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AFF5A32126CA5600BD4A50 /* drowning.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		301CAA772113014300AB61CC /* StatusBarAnimatableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarAnimatableViewController.swift; sourceTree = "<group>"; };
+		301CAA7A21133D5800AB61CC /* CardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		304EF43021199C540017A318 /* DismissCardAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCardAnimator.swift; sourceTree = "<group>"; };
 		30631CFB21106AF50007629D /* AppStoreInteractiveTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreInteractiveTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30631CFE21106AF50007629D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30631D0021106AF50007629D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		30631D0021106AF50007629D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		30631D0321106AF50007629D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30631D0521106AF60007629D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30631D0821106AF60007629D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30631D0A21106AF60007629D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30631D1221106B150007629D /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		30631D1321106B150007629D /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		30631D1821106B3B0007629D /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
+		30631D1921106B3B0007629D /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
+		30631D1C21106B860007629D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		30631D1E211075780007629D /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		30631D21211075DE0007629D /* CardContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardContentView.xib; sourceTree = "<group>"; };
+		30631D22211075DE0007629D /* CardContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardContentView.swift; sourceTree = "<group>"; };
+		30631D23211075DE0007629D /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		30631D24211075DE0007629D /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		30631D292110761E0007629D /* CardContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentViewModel.swift; sourceTree = "<group>"; };
+		307B976421107CD8005A1629 /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
+		307B976621107D4E005A1629 /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
+		307B976821107F04005A1629 /* PresentCardAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentCardAnimator.swift; sourceTree = "<group>"; };
+		307B976C2110DE34005A1629 /* StatusBarAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarAnimatable.swift; sourceTree = "<group>"; };
+		30AFF5A32126CA5600BD4A50 /* drowning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drowning.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301CAA7921133D4B00AB61CC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				301CAA7A21133D5800AB61CC /* CardDetailViewController.swift */,
+				30631D0021106AF50007629D /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		30631CF221106AF40007629D = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +100,64 @@
 		30631CFD21106AF50007629D /* AppStoreInteractiveTransition */ = {
 			isa = PBXGroup;
 			children = (
+				307B976321107CBC005A1629 /* Transition */,
+				30631D1721106B3B0007629D /* Resources */,
+				30631D1021106B0B0007629D /* Misc */,
+				30631D20211075DE0007629D /* Views */,
 				30631CFE21106AF50007629D /* AppDelegate.swift */,
-				30631D0021106AF50007629D /* ViewController.swift */,
+				301CAA7921133D4B00AB61CC /* ViewControllers */,
 				30631D0221106AF50007629D /* Main.storyboard */,
 				30631D0521106AF60007629D /* Assets.xcassets */,
 				30631D0721106AF60007629D /* LaunchScreen.storyboard */,
 				30631D0A21106AF60007629D /* Info.plist */,
 			);
 			path = AppStoreInteractiveTransition;
+			sourceTree = "<group>";
+		};
+		30631D1021106B0B0007629D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				30631D1321106B150007629D /* NibLoadable.swift */,
+				30631D1221106B150007629D /* UIView+AutoLayout.swift */,
+				30631D1C21106B860007629D /* Utils.swift */,
+				30631D1E211075780007629D /* GlobalConstants.swift */,
+				307B976C2110DE34005A1629 /* StatusBarAnimatable.swift */,
+				301CAA772113014300AB61CC /* StatusBarAnimatableViewController.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		30631D1721106B3B0007629D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				30631D1821106B3B0007629D /* img2.jpg */,
+				30631D1921106B3B0007629D /* img1.png */,
+				30AFF5A32126CA5600BD4A50 /* drowning.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		30631D20211075DE0007629D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30631D21211075DE0007629D /* CardContentView.xib */,
+				30631D22211075DE0007629D /* CardContentView.swift */,
+				30631D23211075DE0007629D /* CardCollectionViewCell.xib */,
+				30631D24211075DE0007629D /* CardCollectionViewCell.swift */,
+				30631D292110761E0007629D /* CardContentViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		307B976321107CBC005A1629 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				307B976421107CD8005A1629 /* CardPresentationController.swift */,
+				307B976621107D4E005A1629 /* CardTransition.swift */,
+				307B976821107F04005A1629 /* PresentCardAnimator.swift */,
+				304EF43021199C540017A318 /* DismissCardAnimator.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +218,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30631D25211075DE0007629D /* CardContentView.xib in Resources */,
 				30631D0921106AF60007629D /* LaunchScreen.storyboard in Resources */,
+				30631D1B21106B3B0007629D /* img1.png in Resources */,
 				30631D0621106AF60007629D /* Assets.xcassets in Resources */,
 				30631D0421106AF50007629D /* Main.storyboard in Resources */,
+				30631D27211075DE0007629D /* CardCollectionViewCell.xib in Resources */,
+				30631D1A21106B3B0007629D /* img2.jpg in Resources */,
+				30AFF5A42126CA5600BD4A50 /* drowning.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +236,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30631D0121106AF50007629D /* ViewController.swift in Sources */,
+				30631D2A2110761E0007629D /* CardContentViewModel.swift in Sources */,
+				30631D28211075DE0007629D /* CardCollectionViewCell.swift in Sources */,
+				307B976521107CD8005A1629 /* CardPresentationController.swift in Sources */,
+				301CAA782113014300AB61CC /* StatusBarAnimatableViewController.swift in Sources */,
+				304EF43121199C540017A318 /* DismissCardAnimator.swift in Sources */,
+				30631D1D21106B860007629D /* Utils.swift in Sources */,
+				307B976721107D4E005A1629 /* CardTransition.swift in Sources */,
+				307B976921107F04005A1629 /* PresentCardAnimator.swift in Sources */,
+				30631D0121106AF50007629D /* HomeViewController.swift in Sources */,
+				30631D1521106B150007629D /* UIView+AutoLayout.swift in Sources */,
+				301CAA7B21133D5800AB61CC /* CardDetailViewController.swift in Sources */,
+				30631D26211075DE0007629D /* CardContentView.swift in Sources */,
+				30631D1621106B150007629D /* NibLoadable.swift in Sources */,
 				30631CFF21106AF50007629D /* AppDelegate.swift in Sources */,
+				30631D1F211075780007629D /* GlobalConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +397,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C4JRFH5FHP;
 				INFOPLIST_FILE = AppStoreInteractiveTransition/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C4JRFH5FHP;
 				INFOPLIST_FILE = AppStoreInteractiveTransition/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
