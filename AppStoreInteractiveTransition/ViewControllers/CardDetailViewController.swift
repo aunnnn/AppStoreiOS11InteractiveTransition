@@ -8,11 +8,8 @@
 
 import UIKit
 
-protocol CardDetailInteractivityDelegate: class {
-    func shouldBeginDragDownToDismiss()
-}
 
-class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewDelegate, CardDetailInteractivityDelegate {
+class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var cardContentView: CardContentView!
     @IBOutlet weak var textView: UITextView!
@@ -36,13 +33,18 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
 
     var draggingDownToDismiss = false
 
-    weak var interactivityDelegate: CardDetailInteractivityDelegate?
-
     final class DismissalPanGesture: UIPanGestureRecognizer {}
+    final class DismissalScreenEdgePanGesture: UIScreenEdgePanGestureRecognizer {}
 
     private lazy var dismissalPanGesture: DismissalPanGesture = {
         let pan = DismissalPanGesture()
         pan.maximumNumberOfTouches = 1
+        return pan
+    }()
+
+    private lazy var dismissalScreenEdgePanGesture: DismissalScreenEdgePanGesture = {
+        let pan = DismissalScreenEdgePanGesture()
+        pan.edges = .left
         return pan
     }()
 
@@ -62,28 +64,19 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
         cardContentView.viewModel = cardViewModel
         cardContentView.setFontState(isHighlighted: isFontStateHighlighted)
 
-        let cardDetailVc = self
         dismissalPanGesture.addTarget(self, action: #selector(handleDismissalPan(gesture:)))
         dismissalPanGesture.delegate = self
 
-        // Dismissal pan needs the scroll view's pan to fail first to start.
-        //
-        // This is not necessary to setup, but it gives a nice property to handle gesture state.
-        // Without this, its `.began` state will fire simultaneously with the scroll,
-        // And we need to handle the start of dismissal in `.changed` state instead.
-        //
-        // This also means we have to set isSscrollEnabled to `false` in order to make it failed.
-//        dismissalPanGesture.require(toFail: scrollView.panGestureRecognizer)
+        dismissalScreenEdgePanGesture.addTarget(self, action: #selector(handleDismissalPan(gesture:)))
+        dismissalScreenEdgePanGesture.delegate = self
 
-        cardDetailVc.interactivityDelegate = self
-        cardDetailVc.loadViewIfNeeded()
-        cardDetailVc.view.addGestureRecognizer(dismissalPanGesture)
-    }
+        // Make drag down/scroll pan gesture waits til screen edge pan to fail first to begin
+        dismissalPanGesture.require(toFail: dismissalScreenEdgePanGesture)
+        scrollView.panGestureRecognizer.require(toFail: dismissalScreenEdgePanGesture)
 
-    func shouldBeginDragDownToDismiss() {
-        interactiveStartingPoint = nil
-        dismissalAnimator?.stopAnimation(true)
-        dismissalAnimator = nil
+        loadViewIfNeeded()
+        view.addGestureRecognizer(dismissalPanGesture)
+        view.addGestureRecognizer(dismissalScreenEdgePanGesture)
     }
 
     func didSuccessfullyDragDownToDismiss() {
@@ -91,19 +84,10 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
         dismiss(animated: true)
     }
 
-    func userWillCancelDissmissalByDraggingToTop(velocityY: CGFloat) {
-        print("will simulate scrolling down")
-//        let spring = UISpringTimingParameters(dampingRatio: 1, initialVelocity: CGVector(dx: 0, dy: velocityY))
-//        let scrollAnimator = UIViewPropertyAnimator(duration: 0, timingParameters: spring)
-//        scrollAnimator.addAnimations {
-//            self.scrollView.contentOffset = CGPoint(x: 0, y: 200)
-//        }
-//        scrollAnimator.startAnimation()
-//        scrollView.panGestureRecognizer.state = .began
-    }
+    func userWillCancelDissmissalByDraggingToTop(velocityY: CGFloat) {}
 
     func didCancelDismissalTransition() {
-        print("drag down cancelled")
+        // Clean up
         interactiveStartingPoint = nil
         dismissalAnimator = nil
         draggingDownToDismiss = false
@@ -112,10 +96,14 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
     var interactiveStartingPoint: CGPoint?
     var dismissalAnimator: UIViewPropertyAnimator?
 
+    // This handles both screen edge and dragdown pan. As screen edge pan is a subclass of pan gesture, this input param works.
     @objc func handleDismissalPan(gesture: UIPanGestureRecognizer) {
 
+        let isScreenEdgePan = gesture.isKind(of: DismissalScreenEdgePanGesture.self)
+        let canStartDragDownToDismissPan = !isScreenEdgePan && !draggingDownToDismiss
+
         // Don't do anything when it's not in the drag down mode
-        if !draggingDownToDismiss { return }
+        if canStartDragDownToDismissPan { return }
 
         let targetAnimatedView = gesture.view!
         let startingPoint: CGPoint
@@ -129,7 +117,7 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
         }
 
         let currentLocation = gesture.location(in: nil)
-        let progress = (currentLocation.y - startingPoint.y) / 100
+        let progress = isScreenEdgePan ? (gesture.translation(in: targetAnimatedView).x / 100) : (currentLocation.y - startingPoint.y) / 100
         let targetShrinkScale: CGFloat = 0.86
         let targetCornerRadius: CGFloat = GlobalConstants.cardCornerRadius
 
