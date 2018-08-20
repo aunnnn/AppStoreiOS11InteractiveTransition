@@ -75,7 +75,7 @@ final class DismissCardAnimator: NSObject, UIViewControllerAnimatedTransitioning
         let minimumScaleToShrink = params.fromCardFrameWithoutTransform.width * 0.94 / cardDetailView.bounds.width
 
         func animateCardViewBackToPlace() {
-            screens.cardDetail.scrollView.setContentOffset(.zero, animated: true)
+            screens.cardDetail.scrollView.contentOffset = .zero
             screens.cardDetail.isFontStateHighlighted = false
             // Back to identity
             // NOTE: Animated container view in a way, helps us to not messing up `transform` with `AutoLayout` animation.
