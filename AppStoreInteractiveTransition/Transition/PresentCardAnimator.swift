@@ -172,7 +172,7 @@ final class PresentCardTransitionDriver {
             cardWidthConstraint.constant = animatedContainerView.bounds.width
             cardHeightConstraint.constant = animatedContainerView.bounds.height
             cardDetailView.layer.cornerRadius = 0
-            animatedContainerView.layoutIfNeeded()
+            container.layoutIfNeeded()
         }
 
         func completeEverything() {
