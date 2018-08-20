@@ -122,7 +122,7 @@ extension HomeViewController {
         vc.modalPresentationCapturesStatusBarAppearance = true
         vc.modalPresentationStyle = .custom
 
-        self.present(vc, animated: true, completion: { [unowned cell] in
+        present(vc, animated: true, completion: { [unowned cell] in
             // Unfreeze
             cell.disabledHighlightedAnimation = false
         })
