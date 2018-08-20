@@ -128,7 +128,3 @@ extension HomeViewController {
         })
     }
 }
-
-class CollectionView: UICollectionView {
-
-}
