@@ -2,7 +2,7 @@
 
 Just another attempt to simulate App Store's Card transition.
 
-![demo](https://raw.githubusercontent.com/aunnnn/AppStoreiOS11InteractiveTransition/master/appstoreios11.gif)
+![demo](https://raw.githubusercontent.com/aunnnn/AppStoreiOS11InteractiveTransition/master/appstoreios11demo.gif)
 
 You can also check out my previous approach [here](https://github.com/aunnnn/AppStoreiOS11InteractiveTransition_old). This one is a total rewrite and has better effect/performance. It also has better code organization and has fixes for some issues found in the previous repo.
 
@@ -22,7 +22,7 @@ Interesting transitioning stuffs here:
 - [x] Damping/duration depends on how far the card needs to travel on screen
 - [x] Support drag down to dismiss when reach the top of content page
 - [x] \*You can transition back to scroll when you scroll back up to cancel the dismissal!
-- [x] Support left screen edge pan gesture 
+- [x] Support left screen edge pan gesture
 
 ## TODOs
 - [ ] Support continuous video/gif playing from home to detail page (This requires some work to use a whole view controller as a card cell content from the first page!)
