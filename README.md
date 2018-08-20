@@ -25,6 +25,7 @@ Interesting transitioning stuffs here:
 - [x] Support left screen edge pan gesture
 
 ## TODOs
+- [ ] Fix layout/top area on iPhone X
 - [ ] Support continuous video/gif playing from home to detail page (This requires some work to use a whole view controller as a card cell content from the first page!)
 - [ ] Add blurry close button at the top right of detail page
 - [ ] Perfecting card bouncing up animation (still can't figure out how to achieve that *smooth bounciness* like the App Store.)
@@ -41,3 +42,7 @@ Here are some implementation details:
 
 ### Dismissing
 - TBD...
+
+### Weird Bugs
+- [ ] This is hard to explain, but there's some space on card view top edge during presentation despite constant 0 of their topAnchors. **What's weirder** is that it's already unintentionally fixed by setting a top anchor's constant to value >= 1 (or <= -1). Setting it to any values in the range of (-1, 1) doesn't work.
+- [ ] Blur effect view in the back seems to not showing up properly when we're in dismissal pan mode (especially on iOS 12). But sometimes it happens on iOS 11 too! Proobably due to my incomplete understanding of viewWillAppear/beginTransition/redraw life cycle. 
