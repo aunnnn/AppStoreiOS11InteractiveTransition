@@ -20,15 +20,12 @@ final class CardPresentationController: UIPresentationController {
     override var shouldRemovePresentersView: Bool {
         return false
     }
-
-    override var frameOfPresentedViewInContainerView: CGRect {
-        return containerView!.bounds
-    }
     
     override func presentationTransitionWillBegin() {
         let container = containerView!
+        blurView.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(blurView)
-        blurView.frame = container.bounds
+        blurView.edges(to: container)
         blurView.alpha = 0.0
 
         presentingViewController.beginAppearanceTransition(false, animated: false)
@@ -56,12 +53,5 @@ final class CardPresentationController: UIPresentationController {
         if completed {
             blurView.removeFromSuperview()
         }
-    }
-
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: { (ctx) in
-            self.presentedView?.frame = self.frameOfPresentedViewInContainerView
-        }, completion: nil)
     }
 }
