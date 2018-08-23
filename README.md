@@ -1,10 +1,10 @@
 # iOS 11 App Store Transition
 
-Just another attempt to simulate App Store's Card transition.
+Just another attempt to simulate App Store's Card transition:
 
 ![demo](https://raw.githubusercontent.com/aunnnn/AppStoreiOS11InteractiveTransition/master/appstoreios11demo.gif)
 
-You can also check out my previous approach [here](https://github.com/aunnnn/AppStoreiOS11InteractiveTransition_old). This one is a total rewrite and has better effect/performance. It also has better code organization and has fixes for some issues found in the previous repo.
+You can check out my previous approach [here](https://github.com/aunnnn/AppStoreiOS11InteractiveTransition_old). This one is a total rewrite with minor difference in approach. It has better effect/performance, better code organization, and has fixes for some issues found in the previous repo.
 
 ## Overview
 All is done with native APIs (`UIViewControllerAnimatedTransitioning`, etc.), no external libraries. This is **NOT a library** to install or ready to use, it's an experiementation/demo project to show how such App Store presentation might work.
@@ -15,14 +15,14 @@ Interesting transitioning stuffs here:
 - `CardPresentationController`: Blur effect view and overall aspect of the presentation,
 - `CardDetailViewController`: Interactive shrinking pan gesture code.
 
-## Features (that you might not know exist)
+## Features (that you might not know exist!)
 - [x] Status bar animation
 - [x] Very responsive card cell highlighting animation
-- [x] Bouncing up card animation using container view + AutoLayout
-- [x] Damping/duration depends on how far the card needs to travel on screen
-- [x] Support drag down to dismiss when reach the top of content page
-- [x] \*You can transition back to scroll when you scroll back up to cancel the dismissal!
-- [x] Support left screen edge pan gesture
+- [x] Card bouncing up animation (Two animations at work: spring for moving to place, linear for card expansion)
+- [x] Damping and duration depends on how far the card needs to travel on screen
+- [x] Drag down to dismiss when reach the top of content page
+  - [x] Scroll back up to cancel the dismissal!
+- [x] Left screen edge pan to dismiss
 
 ## TODOs
 - [ ] Fix layout/top area on iPhone X
