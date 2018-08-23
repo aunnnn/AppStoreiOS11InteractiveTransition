@@ -87,8 +87,7 @@ extension HomeViewController {
         let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
 
         // Freeze highlighted state (or else it will bounce back)
-        cell.disabledHighlightedAnimation = true
-        cell.layer.removeAllAnimations()
+        cell.freezeAnimations()
 
         // Get current frame on screen
         let currentCellFrame = cell.layer.presentation()!.frame
@@ -117,9 +116,7 @@ extension HomeViewController {
         vc.unhighlightedCardViewModel = cardModel // Keep the original one to restore when dismiss
         let params = CardTransition.Params(fromCardFrame: cardPresentationFrameOnScreen,
                                            fromCardFrameWithoutTransform: cardFrameWithoutTransform,
-                                           viewModel: cardModel,
-                                           fromCell: cell,
-                                           cardDetailViewController: vc)
+                                           fromCell: cell)
         transition = CardTransition(params: params)
         vc.transitioningDelegate = transition
 
@@ -129,7 +126,7 @@ extension HomeViewController {
 
         present(vc, animated: true, completion: { [unowned cell] in
             // Unfreeze
-            cell.disabledHighlightedAnimation = false
+            cell.unfreezeAnimations()
         })
     }
 }

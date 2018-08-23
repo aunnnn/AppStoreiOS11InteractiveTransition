@@ -16,9 +16,7 @@ final class CardTransition: NSObject, UIViewControllerTransitioningDelegate {
     struct Params {
         let fromCardFrame: CGRect
         let fromCardFrameWithoutTransform: CGRect
-        let viewModel: CardContentViewModel
         let fromCell: CardCollectionViewCell
-        let cardDetailViewController: CardDetailViewController
     }
 
     let params: Params
