@@ -28,6 +28,8 @@ enum GlobalConstants {
 
     /// If true, will always allow user to scroll while it's animated.
     static let isEnabledAllowsUserInteractionWhileHighlightingCard = true
+
+    static let isEnabledDebugShowTimeTouch = true
 }
 
 extension GlobalConstants {

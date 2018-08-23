@@ -29,6 +29,7 @@
 		307B976521107CD8005A1629 /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B976421107CD8005A1629 /* CardPresentationController.swift */; };
 		307B976721107D4E005A1629 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B976621107D4E005A1629 /* CardTransition.swift */; };
 		307B976921107F04005A1629 /* PresentCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B976821107F04005A1629 /* PresentCardAnimator.swift */; };
+		3094F55C212F22CE00E8C21C /* ShowTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094F55B212F22CE00E8C21C /* ShowTime.swift */; };
 		30AFF5A42126CA5600BD4A50 /* drowning.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AFF5A32126CA5600BD4A50 /* drowning.png */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		307B976621107D4E005A1629 /* CardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
 		307B976821107F04005A1629 /* PresentCardAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentCardAnimator.swift; sourceTree = "<group>"; };
 		307B976C2110DE34005A1629 /* StatusBarAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarAnimatable.swift; sourceTree = "<group>"; };
+		3094F55B212F22CE00E8C21C /* ShowTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTime.swift; sourceTree = "<group>"; };
 		30AFF5A32126CA5600BD4A50 /* drowning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drowning.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 		30631D1021106B0B0007629D /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				3094F55B212F22CE00E8C21C /* ShowTime.swift */,
 				30631D1321106B150007629D /* NibLoadable.swift */,
 				30631D1221106B150007629D /* UIView+AutoLayout.swift */,
 				30631D1C21106B860007629D /* Utils.swift */,
@@ -245,6 +248,7 @@
 				307B976721107D4E005A1629 /* CardTransition.swift in Sources */,
 				307B976921107F04005A1629 /* PresentCardAnimator.swift in Sources */,
 				30631D0121106AF50007629D /* HomeViewController.swift in Sources */,
+				3094F55C212F22CE00E8C21C /* ShowTime.swift in Sources */,
 				30631D1521106B150007629D /* UIView+AutoLayout.swift in Sources */,
 				301CAA7B21133D5800AB61CC /* CardDetailViewController.swift in Sources */,
 				30631D26211075DE0007629D /* CardContentView.swift in Sources */,
