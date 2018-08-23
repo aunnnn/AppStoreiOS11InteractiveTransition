@@ -90,8 +90,13 @@ extension HomeViewController {
         cell.disabledHighlightedAnimation = true
         cell.layer.removeAllAnimations()
 
+        // Get current frame on screen
         let currentCellFrame = cell.layer.presentation()!.frame
+
+        // Convert current frame to screen's coordinates
         let cardPresentationFrameOnScreen = cell.superview!.convert(currentCellFrame, to: nil)
+
+        // Get card frame without transform in screen's coordinates  (for the dismissing back later to original location)
         let cardFrameWithoutTransform = { () -> CGRect in
             let center = cell.center
             let size = cell.bounds.size

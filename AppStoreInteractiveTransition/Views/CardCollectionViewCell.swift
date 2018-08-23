@@ -14,34 +14,24 @@ final class CardCollectionViewCell: UICollectionViewCell {
 
     var disabledHighlightedAnimation = false
 
+    override var isHighlighted: Bool {
+        didSet {
+            animate(isHighlighted: isHighlighted)
+        }
+    }
+
     func resetTransform() {
-        self.transform = .identity
+        transform = .identity
     }
 
     override func awakeFromNib() {
         cardContentView.layer.cornerRadius = 16
         cardContentView.layer.masksToBounds = true
-        self.backgroundColor = .clear
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowOffset = .init(width: 0, height: 4)
-        self.layer.shadowRadius = 12
-    }
-
-    // Make it appears very responsive to touch
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        animate(isHighlighted: true)
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        animate(isHighlighted: false)
-    }
-
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesCancelled(touches, with: event)
-        animate(isHighlighted: false)
+        backgroundColor = .clear
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = .init(width: 0, height: 4)
+        layer.shadowRadius = 12
     }
 
     private func animate(isHighlighted: Bool, completion: ((Bool) -> Void)?=nil) {
