@@ -71,15 +71,13 @@ final class DismissCardAnimator: NSObject, UIViewControllerAnimatedTransitioning
         let topTemporaryFix = screens.cardDetail.cardContentView.topAnchor.constraint(equalTo: cardDetailView.topAnchor)
         topTemporaryFix.isActive = GlobalConstants.isEnabledWeirdTopInsetsFix
 
-        // Force card filling bottom
-        let stretchCardToFillBottom = screens.cardDetail.cardContentView.bottomAnchor.constraint(equalTo: cardDetailView.bottomAnchor)
-        stretchCardToFillBottom.isActive = true
-
         container.layoutIfNeeded()
 
-        let minimumScaleToShrink = params.fromCardFrameWithoutTransform.width * 0.94 / cardDetailView.bounds.width
+        // Force card filling bottom
+        let stretchCardToFillBottom = screens.cardDetail.cardContentView.bottomAnchor.constraint(equalTo: cardDetailView.bottomAnchor)
 
         func animateCardViewBackToPlace() {
+            stretchCardToFillBottom.isActive = true
             screens.cardDetail.isFontStateHighlighted = false
             // Back to identity
             // NOTE: Animated container view in a way, helps us to not messing up `transform` with `AutoLayout` animation.
