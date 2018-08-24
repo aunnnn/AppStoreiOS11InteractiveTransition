@@ -54,6 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="185" y="60"/>
         </scene>
         <!--Card Detail View Controller-->
         <scene sceneID="rRq-iA-Grv">
@@ -128,7 +129,6 @@
                             <constraint firstItem="RiM-8a-Ztw" firstAttribute="leading" secondItem="caQ-Ty-6U6" secondAttribute="leading" id="2JC-pa-wYl"/>
                             <constraint firstItem="FeJ-8y-Dnu" firstAttribute="top" relation="lessThanOrEqual" secondItem="RiM-8a-Ztw" secondAttribute="top" id="Crs-xq-Wif"/>
                             <constraint firstItem="RiM-8a-Ztw" firstAttribute="top" secondItem="caQ-Ty-6U6" secondAttribute="top" id="DxC-sC-7bB"/>
-                            <constraint firstItem="l1t-NZ-5Hw" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FeJ-8y-Dnu" secondAttribute="bottom" id="E1p-4y-f1e"/>
                             <constraint firstItem="dfv-KB-fDy" firstAttribute="width" secondItem="caQ-Ty-6U6" secondAttribute="width" id="FN9-dc-tiY"/>
                             <constraint firstItem="ccE-rS-dbv" firstAttribute="top" secondItem="caQ-Ty-6U6" secondAttribute="top" id="dWA-jc-n09"/>
                             <constraint firstAttribute="trailing" secondItem="RiM-8a-Ztw" secondAttribute="trailing" id="hem-9U-3wK"/>
