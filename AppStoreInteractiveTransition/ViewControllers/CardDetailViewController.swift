@@ -197,12 +197,18 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if draggingDownToDismiss || (scrollView.isTracking && scrollView.isDragging && scrollView.contentOffset.y < 0) {
+        if draggingDownToDismiss || (scrollView.isTracking && scrollView.contentOffset.y < 0) {
             draggingDownToDismiss = true
             scrollView.contentOffset = .zero
         }
 
         scrollView.showsVerticalScrollIndicator = !draggingDownToDismiss
+    }
+
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if velocity.y > 0 && scrollView.contentOffset.y <= 0 {
+            scrollView.contentOffset = .zero
+        }
     }
 
     override var statusBarAnimatableConfig: StatusBarAnimatableConfig {
