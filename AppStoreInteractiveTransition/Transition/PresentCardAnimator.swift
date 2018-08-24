@@ -188,6 +188,8 @@ final class PresentCardTransitionDriver {
             // Keep -1 to be consistent with the weird bug above.
             cardDetailView.edges(to: container, top: -1)
 
+            // No longer need the bottom constraint that pins bottom of card content to its root.
+            screens.cardDetail.cardBottomToRootBottomConstraint.isActive = false
             screens.cardDetail.scrollView.isScrollEnabled = true
 
             let success = !ctx.transitionWasCancelled

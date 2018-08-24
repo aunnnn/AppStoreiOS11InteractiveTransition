@@ -11,6 +11,14 @@ import UIKit
 
 class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewDelegate {
 
+    // This constraint limits card content to not be covered by root view.
+    // This is useful to make the card content expands when presenting,
+    // as intially the card is fully contained in a smaller environment (card cell).
+    // When animating detail view controller to be full-screen size, it should gradually expands along the bottom edge.
+    //
+    // ***But we dismiss disable this after presenting***
+    @IBOutlet weak var cardBottomToRootBottomConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var cardContentView: CardContentView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!

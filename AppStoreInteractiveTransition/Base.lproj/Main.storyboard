@@ -132,6 +132,7 @@
                             <constraint firstItem="dfv-KB-fDy" firstAttribute="width" secondItem="caQ-Ty-6U6" secondAttribute="width" id="FN9-dc-tiY"/>
                             <constraint firstItem="ccE-rS-dbv" firstAttribute="top" secondItem="caQ-Ty-6U6" secondAttribute="top" id="dWA-jc-n09"/>
                             <constraint firstAttribute="trailing" secondItem="RiM-8a-Ztw" secondAttribute="trailing" id="hem-9U-3wK"/>
+                            <constraint firstItem="l1t-NZ-5Hw" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FeJ-8y-Dnu" secondAttribute="bottom" id="kFM-0c-mOl"/>
                             <constraint firstAttribute="bottom" secondItem="ccE-rS-dbv" secondAttribute="bottom" id="nmY-ra-q2H"/>
                             <constraint firstItem="ccE-rS-dbv" firstAttribute="leading" secondItem="caQ-Ty-6U6" secondAttribute="leading" id="qKQ-TE-tL2"/>
                             <constraint firstAttribute="trailing" secondItem="ccE-rS-dbv" secondAttribute="trailing" id="ue7-Yw-Bdt"/>
@@ -139,6 +140,7 @@
                         <viewLayoutGuide key="safeArea" id="l1t-NZ-5Hw"/>
                     </view>
                     <connections>
+                        <outlet property="cardBottomToRootBottomConstraint" destination="kFM-0c-mOl" id="1EG-Kq-JJx"/>
                         <outlet property="cardContentView" destination="FeJ-8y-Dnu" id="tdB-Ns-lnU"/>
                         <outlet property="scrollView" destination="ccE-rS-dbv" id="C4i-Mz-K62"/>
                         <outlet property="textView" destination="Dli-YQ-xEV" id="hat-vm-qvp"/>
