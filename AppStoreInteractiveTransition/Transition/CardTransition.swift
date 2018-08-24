@@ -9,10 +9,6 @@
 import UIKit
 
 final class CardTransition: NSObject, UIViewControllerTransitioningDelegate {
-
-    final class PanGesture: UIPanGestureRecognizer {}
-    final class ScreenEdgePanGesture: UIScreenEdgePanGestureRecognizer {}
-
     struct Params {
         let fromCardFrame: CGRect
         let fromCardFrameWithoutTransform: CGRect
