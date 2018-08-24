@@ -206,6 +206,8 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        // Without this, when user drag down and lift the finger fast at the top, there'll be some scrolling going on.
+        // This check prevents that.
         if velocity.y > 0 && scrollView.contentOffset.y <= 0 {
             scrollView.contentOffset = .zero
         }
