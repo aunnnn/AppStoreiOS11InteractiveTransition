@@ -6,16 +6,18 @@ Just another attempt to simulate App Store's Card transition:
 
 You can check out my previous approach [here](https://github.com/aunnnn/AppStoreiOS11InteractiveTransition_old). This one is a total rewrite with minor difference in approach. It has better effect/performance, better code organization, and has fixes for some issues found in the previous repo.
 
-*Checkout implementation details in slides under `MobileConf` folder, skip to the last section ('5 Phases of Interaction')*
+*Also checkout implementation details in slides under `MobileConf` folder, skip to the last section ('5 Phases of Interaction')*
 
 ## Overview
 All is done with native APIs (`UIViewControllerAnimatedTransitioning`, etc.), no external libraries. This is **NOT a library** to install or ready to use, it's an experiementation/demo project to show how such App Store presentation might work.
 
-Interesting transitioning stuffs here:
-- `PresentCardAnimator`: Animation code for presentation,
-- `DismissCardAnimator`: Animation code for dismissal,
-- `CardPresentationController`: Blur effect view and overall aspect of the presentation,
-- `CardDetailViewController`: Interactive shrinking pan gesture code.
+Interesting transitioning stuffs:
+- `Transition/PresentCardAnimator`: Animation code for presentation,
+- `Transition/DismissCardAnimator`: Animation code for dismissal,
+- `Transition/CardPresentationController`: Blur effect view and overall aspect of the presentation,
+- `ViewControllers/CardDetailViewController`: Interactive shrinking pan gesture code.
+- `ViewControllers/HomeViewController`: Home page, preparation code before presentation is at collectionView's didSelect delegate method.
+- `Misc/StatusBarAnimatableViewController`
 
 ## Features (that you might not know exist!)
 - [x] Status bar animation
@@ -26,11 +28,12 @@ Interesting transitioning stuffs here:
   - [x] Scroll back up to cancel the dismissal!
 - [x] Left screen edge pan to dismiss
 
-## TODOs
+## TODOs/Defects
 - [ ] Fix layout/top area on iPhone X
 - [ ] Support continuous video/gif playing from home to detail page (This requires some work to use a whole view controller as a card cell content from the first page!)
 - [ ] Add blurry close button at the top right of detail page
 - [ ] Perfecting card bouncing up animation (still can't figure out how to achieve that *smooth bounciness* like the App Store.)
+
 
 Here are some implementation details:
 
@@ -43,8 +46,8 @@ Here are some implementation details:
 ### 2. Before Presenting
 - Need to stop all animations, using `cardCell.layer.removeAllAnimations`. Also prevent any future highlighting animation with a flag.
 - Get current card frame (that is currently animated scaling down) with `cardCell.layer.presentation().frame`, then convert it to screen coordinates.
-- Get presented view controller (`CardDetailViewController`)'s view and position it with AutoLayout at the original card cell's position
-- Hide original card cell's position
+- Get presented view controller (`CardDetailViewController`)'s view and position it with AutoLayout at the original card cell's position.
+- Hide original card cell's position.
 
 ### 3. Presenting*
 - Simply animating frame/AutoLayout constraints with Spring animation won't work.
