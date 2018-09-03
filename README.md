@@ -116,6 +116,8 @@ shrinking!.startAnimation()
 ### 5. Dismissing
 - Just do animation back to original cell's position.
 
+*If you're interested in a more visual guide to '5 Phases of Interaction', checkout MobileConf/slides*
+
 ### Weird Bugs
 - [ ] This is hard to explain, but there's some space on card view top edge during presentation despite constant 0 of their topAnchors. **What's weirder** is that it's already unintentionally fixed by setting a top anchor's constant to value >= 1 (or <= -1). Setting it to any values in the range of (-1, 1) doesn't work.
 - [ ] Blur effect view in the back seems to not showing up properly when we're in dismissal pan mode (especially on iOS 12). But sometimes it happens on iOS 11 too! Proobably due to my incomplete understanding of viewWillAppear/beginTransition/redraw life cycle. 
