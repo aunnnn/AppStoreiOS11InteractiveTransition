@@ -86,6 +86,27 @@ func scrollViewDidScroll(_ scrollView: UIScrollView) {
   scrollView.showsVerticalScrollIndicator = !draggingDownToDismiss
 }
 ```
+- Handle shrinking on drag using `UIViewPropertyAnimator`:
+```swift
+let shrinking = UIViewPropertyAnimator(duration: 0, curve: .linear, animations: {
+  self.view.transform = .init(scaleX: 0.8, y: 0.8)
+  self.view.layer.cornerRadius = 16
+})
+shrinking.pauseAnimation()
+```
+- Reverse animation on drag down pan gesture ended/cancelled:
+```swift
+shrinking!.pauseAnimation()
+shrinking!.isReversed = true
+
+// Disable gesture until reverse closing animation finishes.
+gesture.isEnabled = false
+shrinking!.addCompletion { [unowned self] (pos) in
+  self.didCancelDismissalTransition()
+  gesture.isEnabled = true
+}
+shrinking!.startAnimation()
+```
 
 ### 5. Dismissing
 
