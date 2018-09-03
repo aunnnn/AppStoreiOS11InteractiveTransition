@@ -66,7 +66,8 @@ UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSp
 
 ### 4. Interactively Dismissing
 - Need to handle left screen edge pan and drag down pan.
-  - For drag down we'll add a new pan gesture.
+  - For drag down we'll add a new pan gesture. Make it able to detect *simultaneously* with `scrollView`'s pan.
+    - This means we need to carefully handle when the `dragDownMode` begins, save the starting drag point to calculate dragging progress, as it usually begins on `.change`, not `.began`.
   - For left edge pan just use `UIScreenEdgePanGestureRecognizer`.
 - Give priority to left edge pan by:
 ```swift
@@ -94,6 +95,7 @@ let shrinking = UIViewPropertyAnimator(duration: 0, curve: .linear, animations: 
 })
 shrinking.pauseAnimation()
 ```
+- Carefully handle `progress/fractionComplete` of the animator by understaning when corresponding gestures are began! Use a combination of `gesture.translation(in: _)` and `gesture.location(in: nil)`, etc.
 - Reverse animation on drag down pan gesture ended/cancelled:
 ```swift
 shrinking!.pauseAnimation()
@@ -109,6 +111,7 @@ shrinking!.startAnimation()
 ```
 
 ### 5. Dismissing
+- Just do animation back to original cell's position.
 
 ### Weird Bugs
 - [ ] This is hard to explain, but there's some space on card view top edge during presentation despite constant 0 of their topAnchors. **What's weirder** is that it's already unintentionally fixed by setting a top anchor's constant to value >= 1 (or <= -1). Setting it to any values in the range of (-1, 1) doesn't work.
