@@ -6,7 +6,7 @@ Just another attempt to simulate App Store's Card transition:
 
 You can check out my previous approach [here](https://github.com/aunnnn/AppStoreiOS11InteractiveTransition_old). This one is a total rewrite with minor difference in approach. It has better effect/performance, better code organization, and has fixes for some issues found in the previous repo.
 
-*NOTE: The slides from my recent talk at MobileConf (Thailand) are under MobileConf folder. Skip to the last section (5 Phases of Interaction) to checkout technical tips I used for this project.*
+*Checkout implementation details in slides under `MobileConf` folder, skip to the last section ('5 Phases of Interaction')*
 
 ## Overview
 All is done with native APIs (`UIViewControllerAnimatedTransitioning`, etc.), no external libraries. This is **NOT a library** to install or ready to use, it's an experiementation/demo project to show how such App Store presentation might work.
@@ -34,16 +34,60 @@ Interesting transitioning stuffs here:
 
 Here are some implementation details:
 
-### HomeViewController
-- The card cell needs to be very responsive to touch, so we must set `collectionView.delaysContentTouch = false` (it's `true` by default, to prevent premature cell highlighting, e.g., on table view),
-- Then in `touchesBegan` and `touchesCancellled/Ended` I add highlighting animation code there,
-- `.allowsUserInteraction` is needed in highlighting animation, so that you can continue to scroll immediately while the unhighlighted animation is taking place.
+## 5 Phases of Interaction
+### 1. Highlighting
+- The card cell needs to be very responsive to touch, so we must set `collectionView.delaysContentTouch = false` (it's `true` by default, to prevent premature cell highlighting, e.g., on table view).
+- Put scaling down animation in `touchesBegan` and `touchesCancellled/Ended`.
+- `.allowsUserInteraction` is needed in animation options, so that you can always continue to scroll immediately while the unhighlighted animation is taking place.
 
-### Presentation
-- TBD...
+### 2. Before Presenting
+- Need to stop all animations, using `cardCell.layer.removeAllAnimations`. Also prevent any future highlighting animation with a flag.
+- Get current card frame (that is currently animated scaling down) with `cardCell.layer.presentation().frame`, then convert it to screen coordinates.
+- Get presented view controller (`CardDetailViewController`)'s view and position it with AutoLayout at the original card cell's position
+- Hide original card cell's position
 
-### Dismissing
-- TBD...
+### 3. Presenting*
+- Simply animating frame/AutoLayout constraints with Spring animation won't work.
+- Best alternative (that I can think of right now) is to **animate with two different animation curves: linear for card expansion, and spring for moving up to place.**
+#### Wait, how to animate different AutoLayout constraints with different animation curves?
+- Turns out you can animate different constraints in two animation blocks, like this:
+```swift
+// Animate constraints on the same view with different animation curves
+UIView.animate(withDuration: 0.6 * 0.8) {
+  self.widthAnchor.constant = 200
+  self.heightAnchor.constant = 320
+  self.targetView.layoutIfNeeded()
+}
+UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
+  self.topAnchor.constant = -200
+  self.targetView.layoutIfNeeded()
+}) { (finished) in ... }
+```
+
+### 4. Interactively Dismissing
+- Need to handle left screen edge pan and drag down pan.
+  - For drag down we'll add a new pan gesture.
+  - For left edge pan just use `UIScreenEdgePanGestureRecognizer`.
+- Give priority to left edge pan by:
+```swift
+dragDownPan.require(toFail: leftEdgePan)
+scrollView.panGestureRecognizer.require(toFail: leftEdgePan)
+```
+  - Note that the method `a.require(toFail: b)` is confusingly named. It actually means `a` must *wait* for `b` to fail first before it can start. So just read it like `a.wait(toFail: b)` when you see that.
+- To smoothly transition to shrinking mode when reach the top of scroll view, just use scrollView's delegate:
+```swift
+var draggingDownToDismiss = false // A flag to check mode
+
+func scrollViewDidScroll(_ scrollView: UIScrollView) {
+  if draggingDownToDismiss || (scrollView.isTracking && scrollView.contentOffset.y < 0) {
+    draggingDownToDismiss = true
+    scrollView.contentOffset = .zero // * This is important to make it stick at the top
+  }
+  scrollView.showsVerticalScrollIndicator = !draggingDownToDismiss
+}
+```
+
+### 5. Dismissing
 
 ### Weird Bugs
 - [ ] This is hard to explain, but there's some space on card view top edge during presentation despite constant 0 of their topAnchors. **What's weirder** is that it's already unintentionally fixed by setting a top anchor's constant to value >= 1 (or <= -1). Setting it to any values in the range of (-1, 1) doesn't work.
