@@ -4,9 +4,9 @@ Just another attempt to simulate App Store's Card transition:
 
 ![demo](https://raw.githubusercontent.com/aunnnn/AppStoreiOS11InteractiveTransition/master/appstoreios11demo.gif)
 
-You can check out my previous approach [here](https://github.com/aunnnn/AppStoreiOS11InteractiveTransition_old). This one is a total rewrite with minor difference in approach. It has better effect/performance, better code organization, and has fixes for some issues found in the previous repo.
+Implementation details are available in slides under the `MobileConf` folder, **in the last section ('5 Phases of Interaction')**.
 
-*Also checkout implementation details in slides under `MobileConf` folder, skip to the last section ('5 Phases of Interaction')*
+*My previous repo is [here](https://github.com/aunnnn/AppStoreiOS11InteractiveTransition_old). The new one is a total rewrite. It has better effect/performance, better code organization, and has fixes for some issues found in the previous repo.*
 
 ## Overview
 All is done with native APIs (`UIViewControllerAnimatedTransitioning`, etc.), no external libraries. This is **NOT a library** to install or ready to use, it's an experiementation/demo project to show how such App Store presentation might work.
