@@ -11,15 +11,7 @@ Implementation details are available in slides under the `MobileConf` folder, **
 ## Overview
 All is done with native APIs (`UIViewControllerAnimatedTransitioning`, etc.), no external libraries. This is **NOT a library** to install or ready to use, it's an experiementation/demo project to show how such App Store presentation might work.
 
-Interesting transitioning stuffs:
-- `Transition/PresentCardAnimator`: Animation code for presentation,
-- `Transition/DismissCardAnimator`: Animation code for dismissal,
-- `Transition/CardPresentationController`: Blur effect view and overall aspect of the presentation,
-- `ViewControllers/CardDetailViewController`: Interactive shrinking pan gesture code.
-- `ViewControllers/HomeViewController`: Home page, preparation code before presentation is at collectionView's didSelect delegate method.
-- `Misc/StatusBarAnimatableViewController`
-
-## Features (that you might not know exist!)
+## Features (that you might not know exist)
 - [x] Status bar animation
 - [x] Very responsive card cell highlighting animation
 - [x] Card bouncing up animation (Two animations at work: spring for moving to place, linear for card expansion)
@@ -27,6 +19,14 @@ Interesting transitioning stuffs:
 - [x] Drag down to dismiss when reach the top of content page
   - [x] Scroll back up to cancel the dismissal!
 - [x] Left screen edge pan to dismiss
+
+## Interesting code
+- `Transition/PresentCardAnimator`: Animation code for presentation,
+- `Transition/DismissCardAnimator`: Animation code for dismissal,
+- `Transition/CardPresentationController`: Blur effect view and overall aspect of the presentation,
+- `ViewControllers/CardDetailViewController`: Interactive shrinking pan gesture code.
+- `ViewControllers/HomeViewController`: Home page, preparation code before presentation is at collectionView's didSelect delegate method.
+- `Misc/StatusBarAnimatableViewController`: Status bar animation (quick & dirty though, need to inherit from this parent vc.)
 
 ## TODOs/Defects
 - [ ] Fix layout/top area on iPhone X
