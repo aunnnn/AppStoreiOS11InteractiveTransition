@@ -26,13 +26,13 @@ final class CardPresentationController: UIPresentationController {
         blurView.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(blurView)
         blurView.edges(to: container)
-        blurView.alpha = 0.0
+        blurView.effect = nil
 
         presentingViewController.beginAppearanceTransition(false, animated: false)
         presentedViewController.transitionCoordinator!.animate(alongsideTransition: { (ctx) in
             UIView.animate(withDuration: 0.5, animations: {
                 self.blurView.effect = UIBlurEffect(style: .light)
-                self.blurView.alpha = 1
+                
             })
         }) { (ctx) in }
     }
@@ -44,7 +44,7 @@ final class CardPresentationController: UIPresentationController {
     override func dismissalTransitionWillBegin() {
         presentingViewController.beginAppearanceTransition(true, animated: true)
         presentedViewController.transitionCoordinator!.animate(alongsideTransition: { (ctx) in
-            self.blurView.alpha = 0.0
+            self.blurView.effect = nil
         }, completion: nil)
     }
 

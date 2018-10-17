@@ -62,8 +62,8 @@ final class DismissCardAnimator: NSObject, UIViewControllerAnimatedTransitioning
 
         animatedContainerView.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
         let animatedContainerTopConstraint = animatedContainerView.topAnchor.constraint(equalTo: container.topAnchor, constant: 0)
-        let animatedContainerWidthConstraint = animatedContainerView.widthAnchor.constraint(equalToConstant: cardDetailView.frame.width)
-        let animatedContainerHeightConstraint = animatedContainerView.heightAnchor.constraint(equalToConstant: cardDetailView.frame.height)
+        let animatedContainerWidthConstraint = animatedContainerView.widthAnchor.constraint(equalToConstant: container.frame.width)
+        let animatedContainerHeightConstraint = animatedContainerView.heightAnchor.constraint(equalToConstant: container.frame.height)
 
         NSLayoutConstraint.activate([animatedContainerTopConstraint, animatedContainerWidthConstraint, animatedContainerHeightConstraint])
 
