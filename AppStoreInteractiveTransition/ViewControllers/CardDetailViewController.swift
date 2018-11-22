@@ -160,13 +160,13 @@ class CardDetailViewController: StatusBarAnimatableViewController, UIScrollViewD
                 dismissalAnimator!.stopAnimation(false)
                 dismissalAnimator!.addCompletion { [unowned self] (pos) in
                     switch pos {
-                    case .end:
+                    case .current:
                         self.didSuccessfullyDragDownToDismiss()
                     default:
                         fatalError("Must finish dismissal at end!")
                     }
                 }
-                dismissalAnimator!.finishAnimation(at: .end)
+                dismissalAnimator!.finishAnimation(at: .current)
             }
 
         case .ended, .cancelled:
