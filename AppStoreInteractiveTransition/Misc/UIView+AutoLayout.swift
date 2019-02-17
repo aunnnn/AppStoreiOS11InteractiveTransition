@@ -9,6 +9,35 @@
 import UIKit
 
 extension UIView {
+
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return self.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return self.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor?  {
+        get {
+            return self.borderColor
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+    
     /// Constrain 4 edges of `self` to specified `view`.
     func edges(to view: UIView, top: CGFloat=0, left: CGFloat=0, bottom: CGFloat=0, right: CGFloat=0) {
         NSLayoutConstraint.activate([
